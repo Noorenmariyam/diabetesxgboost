@@ -13,7 +13,7 @@ import pickle
 import numpy as np
 
 # Load trained model
-model_path = "http:github.com/Noorenmariyam/diabetesxgboost/raw/main/xgb_diabetes_model_joblib.pkl"
+model_path = "http://github.com/Noorenmariyam/diabetesxgboost/raw/main/xgb_diabetes_model_joblib.pkl"
 loaded_model = pickle.load(open(model_path, "rb"))
 
 # Function for diabetes prediction
