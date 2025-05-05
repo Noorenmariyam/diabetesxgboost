@@ -13,8 +13,21 @@ import pickle
 import numpy as np
 
 # Load trained model
-model_path ="https://github.com/Noorenmariyam/diabetesxgboost/raw/main/xgb_diabetes_model_joblib.pkl"
-loaded_model = pickle.load(open(model_path, "rb"))
+#model_path ="https://github.com/Noorenmariyam/diabetesxgboost/raw/main/xgb_diabetes_model_joblib.pkl"
+#loaded_model = pickle.load(open(model_path, "rb"))
+
+import requests
+
+url = "https://github.com/Noorenmariyam/diabetesxgboost/raw/main/xgb_diabetes_model_joblib.pkl"
+response = requests.get(url)
+
+# Save the file locally
+with open("xgb_diabetes_model_joblib.pkl", "wb") as file:
+    file.write(response.content)
+import joblib
+
+model_path = "xgb_diabetes_model_joblib.pkl"  # Now it's stored locally
+loaded_model = joblib.load(model_path)
 
 # Function for diabetes prediction
 def diabetes_prediction(input_data):
